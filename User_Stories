@@ -1,0 +1,15 @@
+As a user
+I want buttons and vote count on the side of each post
+So I can up-vote and down-vote each post while also seeing how many net up-votes each post has.
+
+As a user
+I want a search bar displayed on each page of the website 
+So I can search for posts and get appropriate search results based off of my input
+
+As a user
+I want a dropdown list of hyperlinks to popular subreddits
+So I can view the list and be redirected to a given subreddit when clicked
+
+As a user 
+I want a “my subbreddits” bar 
+So I can easily view all of the subreddits which I am subscribed to
