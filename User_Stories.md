@@ -1,3 +1,9 @@
+<!---
+Markdown notes:
+1) There are two spaces at the end of each line in order to have have line breaks after each line.
+2) The double asterisks make the user stories bold.
+-->
+
 **As a user**  
 **I want voting buttons on the side of each post**  
 **So I can up-vote and down-vote each post when I am logged in.**  
