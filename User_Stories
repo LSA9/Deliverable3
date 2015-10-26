@@ -15,6 +15,21 @@ Given a correct username and incorrect password
 when the user is trying to login to his/her account
 then the user will be alerted that the login crudentials are inccorect
 
+scenario 2:
+Given a incorrect username and correct password
+when the user is trying to login to his/her account
+then the user will be alerted that the login crudentials are inccorect
+
+scenario 3:
+Given a blank username and correct password field
+when the user is trying to login to his/her account
+then the user will be alerted that the login crudentials are inccorect
+
+scenario 4:
+Given a correct username and correct password
+when the user is trying to login to his/her account
+then the user will be logged into his/her account
+
 As a user 
 I want a “my subbreddits” bar 
 So I can easily view all of the subreddits which I am subscribed to
