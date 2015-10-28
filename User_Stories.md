@@ -129,3 +129,4 @@ scenario 4:
 Given the user is on the home page 
 When the user clicks on the random button on the top bar
 Then the user should be redirected to a random subreddit
+ 
