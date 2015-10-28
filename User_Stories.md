@@ -83,10 +83,6 @@ when the upvote button is pressed on this post (the one which was previously dow
 then the net upvote count is increased by 2 and is colored orange.  
 
 **As a user**  
-**I want a search bar displayed on each page of the website**  
-**So I can search for posts and get appropriate search results based off of my input.**  
-
-**As a user**  
 **I want to be able to log in**  
 **So I can log in to my account.**  
 
@@ -111,5 +107,25 @@ when the user is trying to login to his/her account
 then the user will be logged into his/her account.  
 
 **As a user**  
-**I want a “my subbreddits” bar**  
-**So I can easily view all of the subreddits which I am subscribed to**  
+**I want a subreddit navigation bar**  
+**So I can easily navigate other subreddits** 
+
+scenario 1: 
+Given the user is on the home page
+When the user clicks on the all button
+Then the user should be redirected to a page consisting of all of Reddit's subreddits
+
+scenario 2:
+Given the user is on the home page
+When the user clicks on the dropdown list on the top bar and then clicks on the 'ASKREDDIT' link in the list
+Them the user should be redirected to the AskReddit subreddit
+
+scenario 3:
+Given the user is on the all page 
+When the user clicks to the front button on the top bar
+Then the user should be redirected to Reddit's home page
+
+scenario 4:
+Given the user is on the home page 
+When the user clicks on the random button on the top bar
+Then the user should be redirected to a random subreddit
