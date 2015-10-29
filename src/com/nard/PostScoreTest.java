@@ -18,7 +18,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by Matt on 10/29/2015.
  */
-public class TestPostScore
+public class PostScoreTest
 {
    private static WebDriver webDriver;
 
