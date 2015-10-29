@@ -1,13 +1,17 @@
-import static org.junit.Assert.*;
+package com.nard;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Aronson1 on 10/26/15.
@@ -19,6 +23,11 @@ public class TopBarTest {
     I want a subreddit navigation bar
     So I can easily navigate other subreddits
      */
+
+    static
+    {
+        Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.WARNING);
+    }
 
     static WebDriver driver = new HtmlUnitDriver();
 
@@ -38,7 +47,7 @@ public class TopBarTest {
 
         linkToAll.click();
 
-        assertEquals(driver.getCurrentUrl(),"https://www.reddit.com/r/all");
+        assertEquals(driver.getCurrentUrl(), Constants.REDDIT_BASE_URL + "r/all");
     }
 
     /*
@@ -55,7 +64,7 @@ public class TopBarTest {
         WebElement linkToAskreddit = driver.findElement(By.linkText("AskReddit"));
         linkToAskreddit.click();
 
-        assertEquals(driver.getCurrentUrl(), "https://www.reddit.com/r/AskReddit/");
+        assertEquals(driver.getCurrentUrl(), Constants.REDDIT_BASE_URL + "r/AskReddit/");
     }
 
     /*
@@ -71,7 +80,7 @@ public class TopBarTest {
         WebElement linkToFront = driver.findElement(By.linkText("front"));
         linkToFront.click();
 
-        assertEquals(driver.getCurrentUrl(), "https://www.reddit.com/");
+        assertEquals(driver.getCurrentUrl(), Constants.REDDIT_BASE_URL);
     }
 
     /*
@@ -84,7 +93,7 @@ public class TopBarTest {
         WebElement linkToRandom = driver.findElement(By.linkText("random"));
         linkToRandom.click();
 
-        assertTrue(driver.getCurrentUrl().contains("https://www.reddit.com/") && !driver.getCurrentUrl().equals("https://www.reddit.com/"));
+        assertTrue(driver.getCurrentUrl().contains(Constants.REDDIT_BASE_URL) && !driver.getCurrentUrl().equals(Constants.REDDIT_BASE_URL));
     }
 
 

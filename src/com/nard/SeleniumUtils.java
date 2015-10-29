@@ -181,8 +181,8 @@ public final class SeleniumUtils
          WebElement loginButton = driver.findElement(new ByChained(By.id("login_login-main"), By.className("btn")));
 
          // input username and password
-         usernameField.sendKeys(Constants.REDDIT_ACCT_NAME);
-         passwordField.sendKeys(Constants.REDDIT_PASSWORD);
+         usernameField.sendKeys(Constants.REDDIT_VALID_ACCT);
+         passwordField.sendKeys(Constants.REDDIT_VALID_PASS);
 
          // click login button to login
          loginButton.click();

@@ -1,12 +1,17 @@
-import static org.junit.Assert.*;
+package com.nard;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -19,7 +24,10 @@ public class LoginTest {
     I want to be able to log in
     So I can log in to my account.
      */
-
+    static
+    {
+       Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.WARNING);
+    }
 
     static WebDriver driver = new HtmlUnitDriver();
 
@@ -43,8 +51,8 @@ public class LoginTest {
         WebElement passwordField = driver.findElement(By.name("passwd"));
         WebElement submitbutton = driver.findElement(By.className("submit"));
 
-        userField.sendKeys("qarocks123");
-        passwordField.sendKeys("123abc");
+        userField.sendKeys(Constants.REDDIT_VALID_ACCT);
+        passwordField.sendKeys(Constants.REDDIT_INVALID_PASS);
         submitbutton.click();
 
         WebDriverWait w = new WebDriverWait(driver, 10);
@@ -63,8 +71,8 @@ public class LoginTest {
         WebElement passwordField = driver.findElement(By.name("passwd"));
         WebElement submitbutton = driver.findElement(By.className("submit"));
 
-        userField.sendKeys("qadoesntrock123");
-        passwordField.sendKeys("123abc");
+        userField.sendKeys(Constants.REDDIT_INVALID_ACCT);
+        passwordField.sendKeys(Constants.REDDIT_INVALID_PASS);
         submitbutton.click();
 
         WebDriverWait w = new WebDriverWait(driver, 10);
@@ -84,8 +92,8 @@ public class LoginTest {
         WebElement passwordField = driver.findElement(By.name("passwd"));
         WebElement submitbutton = driver.findElement(By.className("btn"));
 
-        userField.sendKeys("qarocks123");
-        passwordField.sendKeys("abc123");
+        userField.sendKeys(Constants.REDDIT_VALID_ACCT);
+        passwordField.sendKeys(Constants.REDDIT_VALID_PASS);
         submitbutton.click();
 
         WebDriverWait w = new WebDriverWait(driver, 10);
