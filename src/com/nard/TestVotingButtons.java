@@ -28,8 +28,6 @@ public class TestVotingButtons
    @BeforeClass
    public static void openBrowser()
    {
-      FancyPrinting.clearPrintingIndent();
-      FancyPrinting.print("Opening Firefox...");
       webDriver = new FirefoxDriver();
       webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
    }
@@ -43,7 +41,6 @@ public class TestVotingButtons
    @AfterClass
    public static void closeBrowser()
    {
-      FancyPrinting.print("Closing Firefox...");
       if (webDriver != null)
       {
          webDriver.quit();
@@ -56,7 +53,6 @@ public class TestVotingButtons
                  downvoteArrow.getCssValue("background-image").contains("sprite-reddit.etL6mAFJrLc.png"));
       assertTrue("Downvote arrow is gray",
                  downvoteArrow.getCssValue("background-position").equals("-86px -843px"));
-      FancyPrinting.print("Downvote arrow is gray");
    }
 
    private static void assertDownvoteArrowIsBlue(WebElement downvoteArrow)
@@ -65,7 +61,6 @@ public class TestVotingButtons
                  downvoteArrow.getCssValue("background-image").contains("sprite-reddit.etL6mAFJrLc.png"));
       assertTrue("Downvote arrow is blue",
                  downvoteArrow.getCssValue("background-position").equals("0px -865px"));
-      FancyPrinting.print("Downvote arrow is blue");
    }
 
    private static void assertUpvoteArrowIsGray(WebElement upvoteArrow)
@@ -74,7 +69,6 @@ public class TestVotingButtons
                  upvoteArrow.getCssValue("background-image").contains("sprite-reddit.etL6mAFJrLc.png"));
       assertTrue("Upvote arrow is gray",
                  upvoteArrow.getCssValue("background-position").equals("-21px -865px"));
-      FancyPrinting.print("Upvote arrow is gray");
    }
 
    private static void assertUpvoteArrowIsOrange(WebElement upvoteArrow)
@@ -83,7 +77,6 @@ public class TestVotingButtons
                  upvoteArrow.getCssValue("background-image").contains("sprite-reddit.etL6mAFJrLc.png"));
       assertTrue("Upvote arrow is orange",
                  upvoteArrow.getCssValue("background-position").equals("-42px -865px"));
-      FancyPrinting.print("Upvote arrow is orange");
    }
 
    /*
@@ -104,18 +97,15 @@ public class TestVotingButtons
       // get the upvote arrow for susequent actions and checks
       WebElement upvoteArrow = SeleniumUtils.getUpvoteArrowForPost(post);
       // then click the upvote arrow
-      FancyPrinting.print("Clicking upvote arrow");
       upvoteArrow.click();
       // make sure we can get the login prompt dialog that should have appeared
       WebElement loginPopupDialog = (new WebDriverWait(webDriver, 5))
             .until(ExpectedConditions.visibilityOfElementLocated(By.className("modal-content")));
-      FancyPrinting.print("Confirmed that login prompt dialog appeared");
       // get dialog header text
       String headerText = loginPopupDialog.findElement(By.id("cover-msg")).getText().trim();
       // ensure that the header text tells the user that they must be logged in to upvote
       assertEquals("Login dialog header tells user to login in order to upvote",
                    "You need to be logged in to upvote things.", headerText);
-      FancyPrinting.print("Confirmed that login prompt header tells user to login in order to upvote");
    }
 
    /*
@@ -136,18 +126,15 @@ public class TestVotingButtons
       // get the downvote arrow for susequent actions and checks
       WebElement downvoteArrow = SeleniumUtils.getDownvoteArrowForPost(post);
       // then click the downvote arrow
-      FancyPrinting.print("Clicking downvote arrow");
       downvoteArrow.click();
       // get the popup dialog element
       WebElement loginPopupDialog = (new WebDriverWait(webDriver, 5))
             .until(ExpectedConditions.visibilityOfElementLocated(By.className("modal-content")));
-      FancyPrinting.print("Confirmed that login prompt dialog appeared");
       // get dialog header text
       String headerText = loginPopupDialog.findElement(By.id("cover-msg")).getText().trim();
       // ensure that the header text tells the user that they must be logged in to downvote
       assertEquals("Login dialog header tells user to login in order to downvote",
                    "You need to be logged in to downvote things.", headerText);
-      FancyPrinting.print("Confirmed that login prompt header tells user to login in order to downvote");
    }
 
    /*
@@ -172,7 +159,6 @@ public class TestVotingButtons
       assertUpvoteArrowIsGray(upvoteArrow);
       assertDownvoteArrowIsGray(downvoteArrow);
       // then click the upvote arrow
-      FancyPrinting.print("Clicking upvote arrow");
       upvoteArrow.click();
       // the check that the upvote arrow is now orange and the downvote arrow is still gray
       assertUpvoteArrowIsOrange(upvoteArrow);
@@ -201,7 +187,6 @@ public class TestVotingButtons
       assertUpvoteArrowIsGray(upvoteArrow);
       assertDownvoteArrowIsGray(downvoteArrow);
       // then click the downvote arrow
-      FancyPrinting.print("Clicking downvote arrow");
       downvoteArrow.click();
       // the check that the upvote arrow is still gray and the downvote arrow is now blue
       assertUpvoteArrowIsGray(upvoteArrow);
@@ -230,7 +215,6 @@ public class TestVotingButtons
       assertUpvoteArrowIsOrange(upvoteArrow);
       assertDownvoteArrowIsGray(downvoteArrow);
       // then click the upvote arrow
-      FancyPrinting.print("Clicking upvote arrow");
       upvoteArrow.click();
       // the check that the upvote arrow is now gray and the downvote arrow is still gray
       assertUpvoteArrowIsGray(upvoteArrow);
@@ -259,7 +243,6 @@ public class TestVotingButtons
       assertUpvoteArrowIsGray(upvoteArrow);
       assertDownvoteArrowIsBlue(downvoteArrow);
       // then click the downvote arrow
-      FancyPrinting.print("Clicking downvote arrow");
       downvoteArrow.click();
       // the check that the upvote arrow is still gray and the downvote arrow is now gray
       assertUpvoteArrowIsGray(upvoteArrow);
@@ -288,7 +271,6 @@ public class TestVotingButtons
       assertUpvoteArrowIsOrange(upvoteArrow);
       assertDownvoteArrowIsGray(downvoteArrow);
       // then click the downvote arrow
-      FancyPrinting.print("Clicking downvote arrow");
       downvoteArrow.click();
       // the check that the upvote arrow is now gray and the downvote arrow is now blue
       assertUpvoteArrowIsGray(upvoteArrow);
@@ -317,7 +299,6 @@ public class TestVotingButtons
       assertUpvoteArrowIsGray(upvoteArrow);
       assertDownvoteArrowIsBlue(downvoteArrow);
       // then click the upvote arrow
-      FancyPrinting.print("Clicking upvote arrow");
       upvoteArrow.click();
       // the check that the upvote arrow is now orange and the downvote arrow is now gray
       assertUpvoteArrowIsOrange(upvoteArrow);

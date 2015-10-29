@@ -31,8 +31,6 @@ public class TestPostScore
    @BeforeClass
    public static void openBrowser()
    {
-      FancyPrinting.clearPrintingIndent();
-      FancyPrinting.print("Opening Firefox...");
       webDriver = new FirefoxDriver();
       webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
    }
@@ -46,7 +44,6 @@ public class TestPostScore
    @AfterClass
    public static void closeBrowser()
    {
-      FancyPrinting.print("Closing Firefox...");
       if (webDriver != null)
       {
          webDriver.quit();
@@ -153,7 +150,6 @@ public class TestPostScore
       // also get the unvoted score count
       int unvotedCount = Integer.parseInt(unvotedScore.getText());
       // then click the upvote arrow
-      FancyPrinting.print("Clicking upvote arrow");
       SeleniumUtils.getUpvoteArrowForPost(post).click();
       // then check that the likes score is now being displayed, is orange, and the count is 1 greater than the unvoted
       // score
@@ -186,7 +182,6 @@ public class TestPostScore
       // also get the unvoted score count
       int unvotedCount = Integer.parseInt(unvotedScore.getText());
       // then click the downvote arrow
-      FancyPrinting.print("Clicking downvote arrow");
       SeleniumUtils.getDownvoteArrowForPost(post).click();
       // then check that the dislikes score is now being displayed, is blue, and the count is 1 less than the unvoted
       // score
@@ -219,7 +214,6 @@ public class TestPostScore
       // also get the likes score count
       int likesCount = Integer.parseInt(likesScore.getText());
       // then click the upvote arrow
-      FancyPrinting.print("Clicking upvote arrow");
       SeleniumUtils.getUpvoteArrowForPost(post).click();
       // then check that the unvoted score is now being displayed, is gray, and the count is 1 less than the likes
       // score
@@ -252,7 +246,6 @@ public class TestPostScore
       // also get the dislikes score count
       int dislikesCount = Integer.parseInt(dislikesScore.getText());
       // then click the downvote arrow
-      FancyPrinting.print("Clicking downvote arrow");
       SeleniumUtils.getDownvoteArrowForPost(post).click();
       // then check that the unvoted score is now being displayed, is gray, and the count is 1 greater than the dislikes
       // score
@@ -285,7 +278,6 @@ public class TestPostScore
       // also get the likes score count
       int likesCount = Integer.parseInt(likesScore.getText());
       // then click the downvote arrow
-      FancyPrinting.print("Clicking downvote arrow");
       SeleniumUtils.getDownvoteArrowForPost(post).click();
       // then check that the dislikes score is now being displayed, is blue, and the count is 2 less than the likes
       // score
@@ -318,7 +310,6 @@ public class TestPostScore
       // also get the dislikes score count
       int dislikesCount = Integer.parseInt(dislikesScore.getText());
       // then click the upvote arrow
-      FancyPrinting.print("Clicking upvote arrow");
       SeleniumUtils.getUpvoteArrowForPost(post).click();
       // then check that the likes score is now being displayed, is orange, and the count is 2 greater than the dislikes
       // score
