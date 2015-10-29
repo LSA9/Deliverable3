@@ -16,7 +16,7 @@ public class FancyPrinting
    {
       for (int i = 0; i < indentLevel; i++)
       {
-         System.out.print('\t');
+         System.out.print("   ");
       }
       System.out.println(str);
    }
