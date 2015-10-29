@@ -1,7 +1,7 @@
 package com.nard;
 
 /**
- * Contains constants used in multiple tests.
+ * Contains constants used in tests.
  */
 public class Constants
 {
